@@ -5,7 +5,7 @@ This is our official implementation of TVA-Seg!
 
 
 ## Introduction
-![](assets/liucheng.pdf)
+![](assets/TVA-Seg.png)
 We introduce cost aggregation to open-vocabulary semantic segmentation, which jointly aggregates both image and text modalities within the matching cost.
 
 For further details and visualization results, please check out our [paper](https://arxiv.org/abs/2303.11797) and our [project page](https://ku-cvlab.github.io/CAT-Seg/).
