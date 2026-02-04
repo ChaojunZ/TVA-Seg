@@ -6,34 +6,12 @@ This is our official implementation of TVA-Seg!
 
 ## Introduction
 ![](assets/TVA-Seg.png)
-We introduce cost aggregation to open-vocabulary semantic segmentation, which jointly aggregates both image and text modalities within the matching cost.
-
-For further details and visualization results, please check out our [paper](https://arxiv.org/abs/2303.11797) and our [project page](https://ku-cvlab.github.io/CAT-Seg/).
-
-**❗️Update:** We released the code and pre-trained weights for CVPR version of CAT-Seg! 
-Some major updates are:
-- We now solely utilize CLIP as the pre-trained encoders, without additional backbones (ResNet, Swin)!
-- We also fine-tune the text encoder of CLIP, yielding significantly improved performance!
-
-For further details, please check out our updated [paper](https://arxiv.org/abs/2303.11797).
-Note that the demos are still running on our previous version, and will be updated soon!
-
-## :fire:TODO
-- [x] Train/Evaluation Code (Mar 21, 2023)
-- [x] Pre-trained weights (Mar 30, 2023)
-- [x] Code of interactive demo (Jul 13, 2023)
-- [x] Release code for CVPR version (Apr 4, 2024)
-- [x] Release checkpoints for CVPR version (Apr 11, 2024)
-- [ ] Demo update
 
 ## Installation
 Please follow [installation](INSTALL.md). 
 
 ## Data Preparation
 Please follow [dataset preperation](datasets/README.md).
-
-## Demo
-If you want to try your own images locally, please try [interactive demo](https://github.com/KU-CVLAB/CAT-Seg/tree/demo).
 
 ## Training
 We provide shell scripts for training and evaluation. ```run.sh``` trains the model in default configuration and evaluates the model after training. 
@@ -61,62 +39,3 @@ sh run.sh [CONFIG] [NUM_GPUS] [OUTPUT_DIR] [OPTS]
 sh eval.sh configs/vitl_336.yaml 4 output/ MODEL.WEIGHTS path/to/weights.pth
 ```
 
-## Pretrained Models
-We provide pretrained weights for our models reported in the paper. All of the models were evaluated with 4 NVIDIA RTX 3090 GPUs, and can be reproduced with the evaluation script above.
-
-<table><tbody>
-<!-- START TABLE -->
-<!-- TABLE HEADER -->
-<th valign="bottom">Name</th>
-<th valign="bottom">CLIP</th>
-<th valign="bottom">A-847</th>
-<th valign="bottom">PC-459</th>
-<th valign="bottom">A-150</th>
-<th valign="bottom">PC-59</th>
-<th valign="bottom">PAS-20</th>
-<th valign="bottom">PAS-20b</th>
-<th valign="bottom">Download</th>
-<!-- TABLE BODY -->
-<!-- ROW: CAT-Seg (B) -->
-<tr>
-<td align="left">CAT-Seg (B)</a></td>
-<td align="center">ViT-B/16</td>
-<td align="center">12.0</td>
-<td align="center">19.0</td>
-<td align="center">31.8</td>
-<td align="center">57.5</td>
-<td align="center">94.6</td>
-<td align="center">77.3</td>
-<td align="center"><a href="https://huggingface.co/spaces/hamacojr/CAT-Seg-weights/resolve/main/model_base.pth">ckpt</a>&nbsp;
-</tr>
-<!-- ROW: CAT-Seg (L) -->
-<tr>
-<td align="left">CAT-Seg (L)</a></td>
-<td align="center">ViT-L/14</td>
-<td align="center">16.0</td>
-<td align="center">23.8</td>
-<td align="center">37.9</td>
-<td align="center">63.3</td>
-<td align="center">97.0</td>
-<td align="center">82.5</td>
-<td align="center"><a href="https://huggingface.co/spaces/hamacojr/CAT-Seg-weights/resolve/main/model_large.pth">ckpt</a>&nbsp;
-</tr>
-
-</tbody></table>
-
-
-## Acknowledgement
-We would like to acknowledge the contributions of public projects, such as [Zegformer](https://github.com/dingjiansw101/ZegFormer), whose code has been utilized in this repository.
-We also thank [Benedikt](mailto:benedikt.blumenstiel@student.kit.edu) for finding an error in our inference code and evaluating CAT-Seg over various datasets!
-## Citing CAT-Seg :cat::pray:
-
-```BibTeX
-@misc{cho2024catseg,
-      title={CAT-Seg: Cost Aggregation for Open-Vocabulary Semantic Segmentation}, 
-      author={Seokju Cho and Heeseong Shin and Sunghwan Hong and Anurag Arnab and Paul Hongsuck Seo and Seungryong Kim},
-      year={2024},
-      eprint={2303.11797},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
